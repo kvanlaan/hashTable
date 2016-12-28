@@ -1,0 +1,247 @@
+/*******************************************************************************
+File:             Questions.txt
+
+Author:           Katrina Van Laan
+
+Completion Date:  11/29/2016
+
+Course:           CS 367, Fall 2016 
+*******************************************************************************/
+Directions: answer the following seven (7) questions.  Note: some of the 
+questions may require you to know how the LinkedList class is implemented; in 
+these cases, you should assume that it is implemented as a doubly-linked chain
+of nodes with references to the head and the tail.
+
+1) The value tested by TestHash are Integer.  For an Integer storing value k, 
+what is the hashCode() returned?  By trying a few values you can quickly figure 
+out what it does.  
+
+Answer: If k is an integer, hashCode() will return k.
+
+
+2) Suppose you insert an item into your hashtable and then immediately do a 
+lookup on that item.  What is the worst-case complexity of your program in this
+situation?  Briefly explain your answer.
+
+Answer:  In the worst case, all of the keys will hash to the same place. 
+So assuming this item was one of many hashed to this location, and it is the mostly recently added, the worst-case 
+time for lookup will be O(N), where N is the number of values 
+stored in the hashtable. If this is the only item, the complexity is still O(N);
+
+
+3) What is the worst-case complexity of your dump() method?  Briefly explain
+your answer, making sure to identify the problem size(s).
+
+Answer: It would be 0(N), where N is the number of values stored in the hashtable. 
+One would be required to print every value in the table,
+
+
+4) In this question you will run TestHash four times using the parameters 
+indicated in the table:
+
+1.the number of items to hash
+2.the seed for the random number generator
+3.the maximum load factor (as a real number, not a percent, e.g. 1.25 not 125)
+4.the initial size of the hashtable
+5.the maximum chain length (use 0 to indicate there is no maximum chain length)
+the name of the file for output
+    run1        439 323232 10.0 60 0 filename
+    run2        439 323232 10.0 61 0 filename
+    run3        439 323232 10.0 60 0 filename
+    run4        439 323232 10.0 61 0 filename
+where filename can be any file you want.  
+- For run1 and run2 you will use the TestHash program as written.  
+- For run3 and run4 you will modify the TestHash program so that instead of 
+  inserting random integers into the hashtable, it will insert the numbers 
+  0, 3, 6, 9, 12, ...
+  The easiest way to do this is to replace the line:
+      table.insert(new Integer(randGen.nextInt()));
+  with the line:
+      table.insert(new Integer(3*k)); 
+
+What are the hashtable statistics for each of the runs?  
+Answer:
+Run1
+Hashtable statistics:
+  current table size:       60
+  # items in table:         439
+  current load factor:      7.316666666666666
+  longest chain length:     14
+  # 0-length chains:        0
+  avg (non-0) chain length: 7.316666666666666
+  
+Run2
+Hashtable statistics:
+  current table size:       61
+  # items in table:         439
+  current load factor:      7.19672131147541
+  longest chain length:     14
+  # 0-length chains:        0
+  avg (non-0) chain length: 7.19672131147541
+  
+ Run3
+Hashtable statistics:
+  current table size:       60
+  # items in table:         439
+  current load factor:      7.316666666666666
+  longest chain length:     22
+  # 0-length chains:        40
+  avg (non-0) chain length: 21.95
+ 
+ Run4
+ 
+Hashtable statistics:
+  current table size:       61
+  # items in table:         439
+  current load factor:      7.19672131147541
+  longest chain length:     8
+  # 0-length chains:        0
+  avg (non-0) chain length: 7.19672131147541
+  
+  
+5) In this question you will again run TestHash four times, this time using the 
+parameters:
+    run5        439 323232 0.8 60 0 filename
+    run6        439 323232 0.8 61 0 filename
+    run7        439 323232 0.8 60 0 filename
+    run8        439 323232 0.8 61 0 filename
+where filename can be any file you want.  
+- For run5 and run6 you will use the TestHash program as written.  
+- For run7 and run8 you will modify the TestHash program so that instead of
+  inserting random integers into the hashtable, it will insert the numbers 
+  0, 3, 6, 9, 12, ...
+  The easiest way to do this is to replace the line:
+      table.insert(new Integer(randGen.nextInt()));
+  with the line:
+      table.insert(new Integer(3*k)); 
+
+What are the hashtable statistics for each of the runs?  
+
+Answer:
+run5
+Hashtable statistics:
+  current table size:       487
+  # items in table:         439
+  current load factor:      0.9014373716632443
+  longest chain length:     5
+  # 0-length chains:        194
+  avg (non-0) chain length: 1.4982935153583619
+ 
+ run6
+Hashtable statistics:
+  current table size:       495
+  # items in table:         439
+  current load factor:      0.8868686868686869
+  longest chain length:     5
+  # 0-length chains:        208
+  avg (non-0) chain length: 1.529616724738676
+  
+ run7
+Hashtable statistics:
+  current table size:       487
+  # items in table:         439
+  current load factor:      0.9014373716632443
+  longest chain length:     1
+  # 0-length chains:        48
+  avg (non-0) chain length: 1.0
+  
+ run8
+Hashtable statistics:
+  current table size:       495
+  # items in table:         439
+  current load factor:      0.8868686868686869
+  longest chain length:     3
+  # 0-length chains:        330
+  avg (non-0) chain length: 2.6606060606060606
+
+6) In this question you will again run TestHash four times, this time using the 
+parameters:
+    run9        439 323232 10.0 11 0 filename
+    run10       439 323232 10.0 11 5 filename
+    run11       439 323232 0.8 11 0 filename
+    run12       439 323232 0.8 11 5 filename
+where filename can be any file you want.  
+For all these runs you will use the TestHash program as written.  
+
+What are the hashtable statistics for each of the runs?  
+//all started prime
+Answer:
+run 9 
+Hashtable statistics:
+  current table size:       47
+  # items in table:         439
+  current load factor:      9.340425531914894
+  longest chain length:     17
+  # 0-length chains:        0
+  avg (non-0) chain length: 9.340425531914894
+  
+run10
+Hashtable statistics:
+  current table size:       767
+  # items in table:         439
+  current load factor:      0.5723598435462842
+  longest chain length:     4
+  # 0-length chains:        429
+  avg (non-0) chain length: 1.2988165680473374
+  
+run11
+Hashtable statistics:
+  current table size:       767
+  # items in table:         439
+  current load factor:      0.5723598435462842
+  longest chain length:     4
+  # 0-length chains:        429
+  avg (non-0) chain length: 1.2988165680473374
+
+run12
+Hashtable statistics:
+  current table size:       767
+  # items in table:         439
+  current load factor:      0.5723598435462842
+  longest chain length:     4
+  # 0-length chains:        429
+  avg (non-0) chain length: 1.2988165680473374
+
+7) Briefly analyze your results from questions 4, 5, and 6.  Your analysis 
+should consider the following (in relation to the final distribution of the 
+hashtable):
+    - the characteristics of the table size (i.e., prime or non-prime)
+    - the characteristics of the input data 
+    - the load factor (i.e., is the hashtable resized or not?)
+    - the maximum chain length (i.e., whether or not there is a max)
+and describe how they are related.
+
+Answer:
+Table Size Prime or not Prime:
+ 
+    Relationship to types of input:
+    If an inserted integer is a divisor or multiple of the table length, and therefore requiring the table length to be a non-prime number,
+    the number of 0-length chains is much higher.
+     
+    I deduce this is because the keys are far more likely to duplicate or be similar values than if the numbers were not divisors or multiples of the table length. 
+    Therefore, there will be an uneven distribution of values resulting in longer chains but more empty chains in between.
+    
+    Initial Table Size Primeness to Max-Chain Length:
+    If a max-chain length is specified a table size that is originally prime is more likely to to have a not-prime 
+    "current table size" because more resizes will occur.
+     
+    Maximum Load Factor in relation to table size:
+    The bigger the maximum load factor, the more likely the table is to have a smaller "current table size".
+    This is because less re-sizing will occur.
+    
+    If the input is a divisor or multiple of original table size the "current load factor" is also likely to be higher,
+    because fewer resizes will have occurred.
+   
+ Maximum-Chain length:
+   	Relationship to table size:
+   	When there is no max-chain length, the final table size is likely smaller than if a Max-Chain length is specified.
+   	This is because resizing is much less likely to occur. It will only occur if the maximum load factor is met.
+    
+    Relationship to maximum and current load factor:
+    If maximum-chain length is specified, the resulting "current load factor" will likely be smaller. 
+    This is because tables with maximum-chain length specified will have a higher denominator, being table length,
+    without a correspondingly increased numerator, number of items, that prompts table expanded as a result of the load factor being met.
+    
+  	If the maximum load factor is relatively high but has a maximum-chain length specified, its results will be similar 
+  	to a run that has a low maximum load factor but no maximum-chain length specified.
+  	Because, despite having a higher maximum load factor, the table will need to resize in cases where the former scenario would not.
